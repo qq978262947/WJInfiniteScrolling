@@ -18,6 +18,5 @@
 
 @interface WJDownloadOperation : NSOperation
 @property (nonatomic, copy) NSString *url;
-@property (assign, nonatomic)int index;
 @property (nonatomic, weak) id<WJDownloadOperationDelegate> delegate;
 @end

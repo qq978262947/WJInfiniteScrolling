@@ -27,6 +27,8 @@
 		DA0C84861C9026F700F7D8D0 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0C847B1C9026F700F7D8D0 /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		DA0C84871C9026F700F7D8D0 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0C847D1C9026F700F7D8D0 /* View+MASAdditions.m */; };
 		DA0C848E1C9057FD00F7D8D0 /* WJLocalInfiniteView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0C848D1C9057FD00F7D8D0 /* WJLocalInfiniteView.m */; };
+		DA2B47681C986F01001DE451 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2B47671C986F01001DE451 /* NSString+MD5.m */; };
+		DA2B476B1C987049001DE451 /* WJInfiniteCache.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2B476A1C987049001DE451 /* WJInfiniteCache.m */; };
 		DA3802941C97FDE600FAC887 /* WJInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3802931C97FDE600FAC887 /* WJInfiniteScrolling.m */; };
 		DA3802E51C98051100FAC887 /* WJTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3802E41C98051100FAC887 /* WJTwoViewController.m */; };
 		DA3802E81C980C9B00FAC887 /* WJDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3802E71C980C9B00FAC887 /* WJDownloadOperation.m */; };
@@ -96,6 +98,11 @@
 		DA0C847E1C9026F700F7D8D0 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
 		DA0C848C1C9057FD00F7D8D0 /* WJLocalInfiniteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJLocalInfiniteView.h; sourceTree = "<group>"; };
 		DA0C848D1C9057FD00F7D8D0 /* WJLocalInfiniteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJLocalInfiniteView.m; sourceTree = "<group>"; };
+		DA2B47661C986F01001DE451 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		DA2B47671C986F01001DE451 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
+		DA2B47691C987049001DE451 /* WJInfiniteCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJInfiniteCache.h; sourceTree = "<group>"; };
+		DA2B476A1C987049001DE451 /* WJInfiniteCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJInfiniteCache.m; sourceTree = "<group>"; };
+		DA2B476C1C9870D5001DE451 /* singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = singleton.h; sourceTree = "<group>"; };
 		DA3802921C97FDE600FAC887 /* WJInfiniteScrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJInfiniteScrolling.h; sourceTree = "<group>"; };
 		DA3802931C97FDE600FAC887 /* WJInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJInfiniteScrolling.m; sourceTree = "<group>"; };
 		DA3802E31C98051100FAC887 /* WJTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WJTwoViewController.h; path = Masonry/WJTwoViewController.h; sourceTree = "<group>"; };
@@ -235,12 +242,17 @@
 			isa = PBXGroup;
 			children = (
 				DA3802EA1C98218A00FAC887 /* placeholderImage.bundle */,
+				DA2B47661C986F01001DE451 /* NSString+MD5.h */,
+				DA2B47671C986F01001DE451 /* NSString+MD5.m */,
 				DA0C848C1C9057FD00F7D8D0 /* WJLocalInfiniteView.h */,
 				DA0C848D1C9057FD00F7D8D0 /* WJLocalInfiniteView.m */,
 				DA3802E61C980C9B00FAC887 /* WJDownloadOperation.h */,
 				DA3802E71C980C9B00FAC887 /* WJDownloadOperation.m */,
 				DA3802921C97FDE600FAC887 /* WJInfiniteScrolling.h */,
 				DA3802931C97FDE600FAC887 /* WJInfiniteScrolling.m */,
+				DA2B47691C987049001DE451 /* WJInfiniteCache.h */,
+				DA2B476A1C987049001DE451 /* WJInfiniteCache.m */,
+				DA2B476C1C9870D5001DE451 /* singleton.h */,
 			);
 			path = WJInfiniteScrolling;
 			sourceTree = "<group>";
@@ -385,12 +397,14 @@
 				DA0C842D1C90243100F7D8D0 /* main.m in Sources */,
 				DA0C84631C9024A800F7D8D0 /* WJOneViewController.m in Sources */,
 				DA0C84871C9026F700F7D8D0 /* View+MASAdditions.m in Sources */,
+				DA2B47681C986F01001DE451 /* NSString+MD5.m in Sources */,
 				DA0C847F1C9026F700F7D8D0 /* MASCompositeConstraint.m in Sources */,
 				DA0C84831C9026F700F7D8D0 /* MASViewAttribute.m in Sources */,
 				DA0C84811C9026F700F7D8D0 /* MASConstraintMaker.m in Sources */,
 				DA0C84851C9026F700F7D8D0 /* NSArray+MASAdditions.m in Sources */,
 				DA0C84801C9026F700F7D8D0 /* MASConstraint.m in Sources */,
 				DA3802E51C98051100FAC887 /* WJTwoViewController.m in Sources */,
+				DA2B476B1C987049001DE451 /* WJInfiniteCache.m in Sources */,
 				DA0C84821C9026F700F7D8D0 /* MASLayoutConstraint.m in Sources */,
 				DA0C84601C90249100F7D8D0 /* WJNavgationController.m in Sources */,
 				DA3802E81C980C9B00FAC887 /* WJDownloadOperation.m in Sources */,

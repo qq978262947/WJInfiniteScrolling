@@ -9,6 +9,7 @@
 #import "WJInfiniteScrolling.h"
 #import "Masonry.h"
 #import "WJDownloadOperation.h"
+#import "NSString+MD5.h"
 
 #define WJScreen [UIScreen mainScreen].bounds.size.width
 #define WJFiniteScrollW (WJScreen - 20)
@@ -42,11 +43,29 @@ static NSInteger const WJADImageBaseTag = 10;
  *  存放图片等字典
  */
 @property (nonatomic, strong)NSMutableDictionary *imagesDict;
+/**
+ *  沙盒cache路径
+ */
+@property (strong, nonatomic)NSString *path;
 @end
 
 
 
 @implementation WJInfiniteScrolling
+
+- (NSString *)path {
+    if (nil == _path) {
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+        _path = [paths firstObject];
+        _path = [_path stringByAppendingPathComponent:@"wjImages"];
+        // 判断文件夹是否存在，如果不存在，则创建
+        NSFileManager *manager = [NSFileManager defaultManager];
+        if (![manager fileExistsAtPath:_path]) {
+            [manager createDirectoryAtPath:_path withIntermediateDirectories:YES attributes:nil error:nil];
+        }
+    }
+    return _path;
+}
 
 - (NSMutableDictionary *)imagesDict {
     if (nil == _imagesDict) {
@@ -84,7 +103,7 @@ static NSInteger const WJADImageBaseTag = 10;
 - (UIImage *)placeholderImage {
     if (nil == _placeholderImage) {
         NSString * bundlePath = [[ NSBundle mainBundle] pathForResource: @"placeholderImage" ofType:@"bundle"];
-        NSString *filePath = [NSString stringWithFormat:@"%@/FollowBtnClickBg",bundlePath];
+        NSString *filePath = [bundlePath stringByAppendingPathComponent:@"FollowBtnClickBg"];
         _placeholderImage = [UIImage imageNamed:filePath];
     }
     return _placeholderImage;
@@ -118,14 +137,12 @@ static NSInteger const WJADImageBaseTag = 10;
 - (void)setUrlImageStrings:(NSArray *)urlImageStrings {
     _urlImageStrings = [urlImageStrings copy];
     self.pageCotrol.numberOfPages = urlImageStrings.count;
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString *path = [paths firstObject];
     //设置一个图片的存储路径
     
     
     for (int i = 0; i < urlImageStrings.count; i++) {
         NSString *urlString = urlImageStrings[i];
-        NSString *filePath = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"wj_imageFilePath%i", i]];
+        NSString *filePath = [self.path stringByAppendingPathComponent:[NSString stringWithFormat:@"wj_imageFilePath%@", [urlString md532BitLower]]];
         UIImage *image = [UIImage imageWithContentsOfFile:filePath];
         if (nil == image) {
             
@@ -137,7 +154,6 @@ static NSInteger const WJADImageBaseTag = 10;
                 // 创建操作
                 operation = [[WJDownloadOperation alloc] init];
                 operation.url = urlString;
-                operation.index = i;
                 operation.delegate = self;
                 [self.queue addOperation:operation]; // 异步下载
                 self.operations[urlString] = operation;
@@ -293,10 +309,8 @@ static NSInteger const WJADImageBaseTag = 10;
 #pragma mark - WJDownloadOperationDelegate
 - (void)downloadOperation:(WJDownloadOperation *)operation didFinishDownload:(UIImage *)image {
     [self setupImage:image WithUrlString:operation.url];
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString *path = [paths firstObject];
-    NSString *filePath = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"wj_imageFilePath%i", operation.index]];
+
+    NSString *filePath = [self.path stringByAppendingPathComponent:[NSString stringWithFormat:@"wj_imageFilePath%@", [operation.url md532BitLower]]];
     [UIImagePNGRepresentation(image) writeToFile:filePath atomically:YES];
 }
 
@@ -323,12 +337,11 @@ static NSInteger const WJADImageBaseTag = 10;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    long page = self.scrollView.contentOffset.x / self.scrollView.frame.size.width - 0.5 + self.currentPage;
-    self.pageCotrol.currentPage = page;
+    self.pageCotrol.currentPage = self.scrollView.contentOffset.x / self.scrollView.frame.size.width - 0.5 + self.currentPage;
 }
 
 //处理内存警告
-- (void) handleMemoryWarning
+- (void)handleMemoryWarning
 {
 //    NSLog(@"ViewController中handleMemoryWarning调用");
     // 需要在这里做一些内存清理工作. 如果不处理，会被系统强制闪退。
@@ -342,6 +355,7 @@ static NSInteger const WJADImageBaseTag = 10;
     // 取消下载队列里面的任务
     [self.queue cancelAllOperations];
 }
+
 
 
 @end

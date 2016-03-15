@@ -33,6 +33,11 @@
  *  设置占位图片
  */
 @property (strong, nonatomic)UIImage *placeholderImage;
-
+/**
+ *  自动播放的时间间隔
+ */
 @property (assign, nonatomic)long autoPlayInterval;
+
+
+
 @end
