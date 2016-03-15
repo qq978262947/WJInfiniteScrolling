@@ -8,6 +8,7 @@
 
 #import "WJTableViewController.h"
 #import "WJOneViewController.h"
+#import "WJTwoViewController.h"
 
 @interface WJTableViewController ()
 
@@ -34,7 +35,7 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return 2;
 }
 
 
@@ -44,7 +45,11 @@
     if (nil == cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
     }
-    cell.textLabel.text = @"无限滚动";
+    if (indexPath.row == 0) {
+       cell.textLabel.text = @"无限滚动本地图片-WJLocalInfiniteView";
+    } else {
+       cell.textLabel.text = @"无限滚动网络图片-WJInfiniteScrolling";
+    }
     
     return cell;
 }
@@ -52,7 +57,11 @@
 
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.navigationController pushViewController:[[WJOneViewController alloc]init] animated:YES];
+    if (indexPath.row == 0) {
+        [self.navigationController pushViewController:[[WJOneViewController alloc]init] animated:YES];
+    } else {
+        [self.navigationController pushViewController:[[WJTwoViewController alloc]init] animated:YES];
+    }
 }
 
 

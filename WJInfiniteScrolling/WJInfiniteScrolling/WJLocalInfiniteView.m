@@ -6,14 +6,15 @@
 //  Copyright © 2016年 汪俊. All rights reserved.
 //
 
-#import "WJOneView.h"
+#import "WJLocalInfiniteView.h"
 #import "Masonry.h"
 
-#define WJScreenW [UIScreen mainScreen].bounds.size.width
+#define WJScreen [UIScreen mainScreen].bounds.size.width
+#define WJFiniteScrollW (WJScreen - 20)
 
 static NSInteger const WJADImageBaseTag = 10;
 
-@interface WJOneView () <UIScrollViewDelegate>
+@interface WJLocalInfiniteView () <UIScrollViewDelegate>
 @property (nonatomic, weak) UIPageControl *pageCotrol;
 @property (nonatomic, weak) UIScrollView *scrollView;
 @property (nonatomic, assign) NSInteger currentPage;
@@ -22,7 +23,7 @@ static NSInteger const WJADImageBaseTag = 10;
 
 
 
-@implementation WJOneView
+@implementation WJLocalInfiniteView
 
 
 
@@ -47,7 +48,7 @@ static NSInteger const WJADImageBaseTag = 10;
         imageView.image = [UIImage imageNamed:imageName];
     }
     self.pageCotrol.currentPage = self.currentPage;
-    self.scrollView.contentOffset = CGPointMake(WJScreenW, 0);
+    self.scrollView.contentOffset = CGPointMake(WJFiniteScrollW, 0);
     
 }
 
@@ -94,7 +95,7 @@ static NSInteger const WJADImageBaseTag = 10;
     }
     
     
-//    contentView.frame = CGRectMake(0, 0, WJScreenW * 3, 200);
+//    contentView.frame = CGRectMake(0, 0, WJFiniteScrollW * 3, 200);
 //        [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
 //            make.left.top.equalTo(@0);
 //            make.bottom.equalTo(@0);
@@ -102,7 +103,7 @@ static NSInteger const WJADImageBaseTag = 10;
 //        }];
     [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.equalTo(@0);
-        make.width.equalTo(@(WJScreenW * 3));
+        make.width.equalTo(@(WJFiniteScrollW * 3));
         make.height.equalTo(self);
     }];
     
@@ -120,7 +121,6 @@ static NSInteger const WJADImageBaseTag = 10;
     [self addSubview:pageCotrol];
     self.pageCotrol = pageCotrol;
     pageCotrol.currentPage = 0;
-    scrollView.contentOffset = CGPointMake(WJScreenW, 0);
     pageCotrol.numberOfPages = _images.count;
     
     [pageCotrol mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -132,8 +132,8 @@ static NSInteger const WJADImageBaseTag = 10;
     [pageCotrol addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
     
     self.currentPage = 0;
-    scrollView.contentSize = CGSizeMake(WJScreenW * 3, 0);
-    scrollView.contentOffset = CGPointMake(WJScreenW, 0);
+    scrollView.contentSize = CGSizeMake(WJFiniteScrollW * 3, 0);
+    scrollView.contentOffset = CGPointMake(WJFiniteScrollW, 0);
     
 }
 
@@ -160,7 +160,7 @@ static NSInteger const WJADImageBaseTag = 10;
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    NSInteger pageIndex = (scrollView.contentOffset.x - WJScreenW) / WJScreenW;
+    NSInteger pageIndex = (scrollView.contentOffset.x - WJFiniteScrollW) / WJFiniteScrollW;
     
     pageIndex >= 0 ? 1 : (pageIndex = _images.count - 1);
     self.currentPage = (self.currentPage + pageIndex) % _images.count;

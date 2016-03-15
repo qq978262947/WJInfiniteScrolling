@@ -26,7 +26,11 @@
 		DA0C84851C9026F700F7D8D0 /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0C84781C9026F700F7D8D0 /* NSArray+MASAdditions.m */; };
 		DA0C84861C9026F700F7D8D0 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0C847B1C9026F700F7D8D0 /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		DA0C84871C9026F700F7D8D0 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0C847D1C9026F700F7D8D0 /* View+MASAdditions.m */; };
-		DA0C848E1C9057FD00F7D8D0 /* WJOneView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0C848D1C9057FD00F7D8D0 /* WJOneView.m */; };
+		DA0C848E1C9057FD00F7D8D0 /* WJLocalInfiniteView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0C848D1C9057FD00F7D8D0 /* WJLocalInfiniteView.m */; };
+		DA3802941C97FDE600FAC887 /* WJInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3802931C97FDE600FAC887 /* WJInfiniteScrolling.m */; };
+		DA3802E51C98051100FAC887 /* WJTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3802E41C98051100FAC887 /* WJTwoViewController.m */; };
+		DA3802E81C980C9B00FAC887 /* WJDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3802E71C980C9B00FAC887 /* WJDownloadOperation.m */; };
+		DA3802EB1C98218A00FAC887 /* placeholderImage.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DA3802EA1C98218A00FAC887 /* placeholderImage.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,8 +94,15 @@
 		DA0C847C1C9026F700F7D8D0 /* View+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASAdditions.h"; sourceTree = "<group>"; };
 		DA0C847D1C9026F700F7D8D0 /* View+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "View+MASAdditions.m"; sourceTree = "<group>"; };
 		DA0C847E1C9026F700F7D8D0 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
-		DA0C848C1C9057FD00F7D8D0 /* WJOneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJOneView.h; sourceTree = "<group>"; };
-		DA0C848D1C9057FD00F7D8D0 /* WJOneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJOneView.m; sourceTree = "<group>"; };
+		DA0C848C1C9057FD00F7D8D0 /* WJLocalInfiniteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJLocalInfiniteView.h; sourceTree = "<group>"; };
+		DA0C848D1C9057FD00F7D8D0 /* WJLocalInfiniteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJLocalInfiniteView.m; sourceTree = "<group>"; };
+		DA3802921C97FDE600FAC887 /* WJInfiniteScrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJInfiniteScrolling.h; sourceTree = "<group>"; };
+		DA3802931C97FDE600FAC887 /* WJInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJInfiniteScrolling.m; sourceTree = "<group>"; };
+		DA3802E31C98051100FAC887 /* WJTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WJTwoViewController.h; path = Masonry/WJTwoViewController.h; sourceTree = "<group>"; };
+		DA3802E41C98051100FAC887 /* WJTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WJTwoViewController.m; path = Masonry/WJTwoViewController.m; sourceTree = "<group>"; };
+		DA3802E61C980C9B00FAC887 /* WJDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJDownloadOperation.h; sourceTree = "<group>"; };
+		DA3802E71C980C9B00FAC887 /* WJDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJDownloadOperation.m; sourceTree = "<group>"; };
+		DA3802EA1C98218A00FAC887 /* placeholderImage.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = placeholderImage.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +157,8 @@
 				DA0C84671C9026F700F7D8D0 /* Masonry */,
 				DA0C84611C9024A800F7D8D0 /* WJOneViewController.h */,
 				DA0C84621C9024A800F7D8D0 /* WJOneViewController.m */,
+				DA3802E31C98051100FAC887 /* WJTwoViewController.h */,
+				DA3802E41C98051100FAC887 /* WJTwoViewController.m */,
 				DA0C84641C9024D800F7D8D0 /* WJTableViewController.h */,
 				DA0C84651C9024D800F7D8D0 /* WJTableViewController.m */,
 				DA0C842E1C90243100F7D8D0 /* AppDelegate.h */,
@@ -221,8 +234,13 @@
 		DA0C848B1C9057FD00F7D8D0 /* WJInfiniteScrolling */ = {
 			isa = PBXGroup;
 			children = (
-				DA0C848C1C9057FD00F7D8D0 /* WJOneView.h */,
-				DA0C848D1C9057FD00F7D8D0 /* WJOneView.m */,
+				DA3802EA1C98218A00FAC887 /* placeholderImage.bundle */,
+				DA0C848C1C9057FD00F7D8D0 /* WJLocalInfiniteView.h */,
+				DA0C848D1C9057FD00F7D8D0 /* WJLocalInfiniteView.m */,
+				DA3802E61C980C9B00FAC887 /* WJDownloadOperation.h */,
+				DA3802E71C980C9B00FAC887 /* WJDownloadOperation.m */,
+				DA3802921C97FDE600FAC887 /* WJInfiniteScrolling.h */,
+				DA3802931C97FDE600FAC887 /* WJInfiniteScrolling.m */,
 			);
 			path = WJInfiniteScrolling;
 			sourceTree = "<group>";
@@ -294,6 +312,7 @@
 				TargetAttributes = {
 					DA0C84271C90243100F7D8D0 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 2VHMZAJUND;
 					};
 					DA0C84401C90243100F7D8D0 = {
 						CreatedOnToolsVersion = 7.2;
@@ -331,6 +350,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA0C843B1C90243100F7D8D0 /* LaunchScreen.storyboard in Resources */,
+				DA3802EB1C98218A00FAC887 /* placeholderImage.bundle in Resources */,
 				DA0C84381C90243100F7D8D0 /* Assets.xcassets in Resources */,
 				DA0C84361C90243100F7D8D0 /* Main.storyboard in Resources */,
 			);
@@ -361,6 +381,7 @@
 				DA0C84661C9024D800F7D8D0 /* WJTableViewController.m in Sources */,
 				DA0C84841C9026F700F7D8D0 /* MASViewConstraint.m in Sources */,
 				DA0C84301C90243100F7D8D0 /* AppDelegate.m in Sources */,
+				DA3802941C97FDE600FAC887 /* WJInfiniteScrolling.m in Sources */,
 				DA0C842D1C90243100F7D8D0 /* main.m in Sources */,
 				DA0C84631C9024A800F7D8D0 /* WJOneViewController.m in Sources */,
 				DA0C84871C9026F700F7D8D0 /* View+MASAdditions.m in Sources */,
@@ -369,9 +390,11 @@
 				DA0C84811C9026F700F7D8D0 /* MASConstraintMaker.m in Sources */,
 				DA0C84851C9026F700F7D8D0 /* NSArray+MASAdditions.m in Sources */,
 				DA0C84801C9026F700F7D8D0 /* MASConstraint.m in Sources */,
+				DA3802E51C98051100FAC887 /* WJTwoViewController.m in Sources */,
 				DA0C84821C9026F700F7D8D0 /* MASLayoutConstraint.m in Sources */,
 				DA0C84601C90249100F7D8D0 /* WJNavgationController.m in Sources */,
-				DA0C848E1C9057FD00F7D8D0 /* WJOneView.m in Sources */,
+				DA3802E81C980C9B00FAC887 /* WJDownloadOperation.m in Sources */,
+				DA0C848E1C9057FD00F7D8D0 /* WJLocalInfiniteView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,7 +535,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = WJInfiniteScrolling/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.heartHope.WJInfiniteScrolling;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -523,7 +548,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = WJInfiniteScrolling/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.heartHope.WJInfiniteScrolling;
 				PRODUCT_NAME = "$(TARGET_NAME)";

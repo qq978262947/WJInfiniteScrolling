@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WJOneView : UIView
+@interface WJLocalInfiniteView : UIView
 
 
 @property (copy, nonatomic)NSArray *images;
