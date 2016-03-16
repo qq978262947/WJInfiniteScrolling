@@ -39,7 +39,7 @@
                                 @"http://i3.itc.cn/20160314/3711_91558c48_90d8_3651_f717_6fb6d83a9f9e_1.jpg",
                                 @"http://i3.itc.cn/20160315/3711_8759ea44_704f_6218_b24f_aae33c82f0b9_1.jpg"
                                 ];
-    NSLog(@"%f",(long)[[WJInfiniteCache sharedInfiniteCache] getSize] / 1000.0 / 1000.0);
+    NSLog(@"%.2fM",(long)[[WJInfiniteCache sharedInfiniteCache] getSize] / 1000.0 / 1000.0);
     
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 //        [[WJInfiniteCache sharedInfiniteCache]clearCache];

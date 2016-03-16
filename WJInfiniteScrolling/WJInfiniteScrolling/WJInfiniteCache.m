@@ -25,6 +25,7 @@ singleton_m(InfiniteCache)
 }
 
 - (NSInteger)getSize {
+    // 做无限滚动的图片一般很少，所以并不耗时，不需要异步操作
     NSUInteger size = 0;
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     queue.maxConcurrentOperationCount = 3;

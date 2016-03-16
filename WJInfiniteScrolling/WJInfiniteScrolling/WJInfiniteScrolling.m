@@ -9,7 +9,7 @@
 #import "WJInfiniteScrolling.h"
 #import "Masonry.h"
 #import "WJDownloadOperation.h"
-#import "NSString+MD5.h"
+#import "NSString+WJMD5.h"
 
 #define WJScreen [UIScreen mainScreen].bounds.size.width
 #define WJFiniteScrollW (WJScreen - 20)
@@ -356,7 +356,9 @@ static NSInteger const WJADImageBaseTag = 10;
     [self.queue cancelAllOperations];
 }
 
-
+- (void)dealloc {
+     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
+}
 
 @end
 

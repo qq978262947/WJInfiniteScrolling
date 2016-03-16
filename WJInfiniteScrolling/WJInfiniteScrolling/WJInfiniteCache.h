@@ -10,7 +10,7 @@
 #import "singleton.h"
 
 @interface WJInfiniteCache : NSObject
-
+// 设计成单例为了更好的扩展
 singleton_h(InfiniteCache)
 /**
  *  获取缓存文件夹下文件数量

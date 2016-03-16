@@ -2,14 +2,14 @@
 //  NSString+MD5.m
 //  NSString With MD5
 //
-//  Created by snow on 14-3-12.
-//  Copyright (c) 2014年 snow. All rights reserved.
+//  Created by wangjun on 14-3-12.
+//  Copyright (c) 2014年 wangjun. All rights reserved.
 //  16位其实就是32位去除头和尾各8位
 
-#import "NSString+MD5.h"
+#import "NSString+WJMD5.h"
 #import <CommonCrypto/CommonDigest.h>
 
-@implementation NSString (MD5)
+@implementation NSString (WJMD5)
 
 /**
  *  把字符串加密成32位小写md5字符串
