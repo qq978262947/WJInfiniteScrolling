@@ -7,7 +7,7 @@
 //
 
 #import "WJInfiniteScrolling.h"
-#import <Masonry.h>
+#import "Masonry.h"
 #import "WJDownloadOperation.h"
 #import "NSString+WJMD5.h"
 
@@ -316,7 +316,7 @@ static NSInteger const WJADImageBaseTag = 10;
 #pragma mark - WJDownloadOperationDelegate
 - (void)downloadOperation:(WJDownloadOperation *)operation didFinishDownload:(UIImage *)image {
     [self setupImage:image WithUrlString:operation.url];
-
+    
     NSString *filePath = [self.path stringByAppendingPathComponent:[NSString stringWithFormat:@"wj_imageFilePath%@", [operation.url md532BitLower]]];
     [UIImagePNGRepresentation(image) writeToFile:filePath atomically:YES];
 }
@@ -356,7 +356,7 @@ static NSInteger const WJADImageBaseTag = 10;
 //处理内存警告
 - (void)handleMemoryWarning
 {
-//    NSLog(@"ViewController中handleMemoryWarning调用");
+    //    NSLog(@"ViewController中handleMemoryWarning调用");
     // 需要在这里做一些内存清理工作. 如果不处理，会被系统强制闪退。
     // 清理图片的缓存
     [self.imagesDict removeAllObjects];
@@ -373,7 +373,9 @@ static NSInteger const WJADImageBaseTag = 10;
  *  移除通知
  */
 - (void)dealloc {
-     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
+    // 取消下载队列里面的任务
+    [self.queue cancelAllOperations];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
 }
 
 @end
