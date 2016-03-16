@@ -7,7 +7,7 @@
 //
 
 #import "WJInfiniteScrolling.h"
-#import "Masonry.h"
+#import <Masonry.h>
 #import "WJDownloadOperation.h"
 #import "NSString+WJMD5.h"
 
@@ -184,10 +184,17 @@ static NSInteger const WJADImageBaseTag = 10;
         // 得到当前页及其前后页
         int pageIndex = (int) (i + page) % _urlImageStrings.count;
         // 取出对应的图片
-        UIImage *image = self.imagesDict[_urlImageStrings[pageIndex]];
+        NSString *urlString = _urlImageStrings[pageIndex];
+        UIImage *image = self.imagesDict[urlString];
         // 为其刷新图片
         UIImageView *imageView = [self viewWithTag:WJADImageBaseTag + i];
-        imageView.image = image ? image : self.placeholderImage;
+        if (image) {
+            imageView.image = image;
+        } else {
+            NSString *filePath = [self.path stringByAppendingPathComponent:[NSString stringWithFormat:@"wj_imageFilePath%@", [urlString md532BitLower]]];
+            image = [UIImage imageWithContentsOfFile:filePath];
+            imageView.image = image ? image : self.placeholderImage;
+        }
     }
     self.pageCotrol.currentPage = self.currentPage;
     self.scrollView.contentOffset = CGPointMake(WJFiniteScrollW, 0);
@@ -345,17 +352,20 @@ static NSInteger const WJADImageBaseTag = 10;
 {
 //    NSLog(@"ViewController中handleMemoryWarning调用");
     // 需要在这里做一些内存清理工作. 如果不处理，会被系统强制闪退。
-    
     // 清理图片的缓存
     [self.imagesDict removeAllObjects];
-    
+    self.placeholderImage = nil;
     // 清理操作缓存
     [self.operations removeAllObjects];
     
     // 取消下载队列里面的任务
     [self.queue cancelAllOperations];
+    
 }
 
+/**
+ *  移除通知
+ */
 - (void)dealloc {
      [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
 }

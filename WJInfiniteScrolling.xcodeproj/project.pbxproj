@@ -20,8 +20,8 @@
 		DA0C848E1C9057FD00F7D8D0 /* WJLocalInfiniteView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0C848D1C9057FD00F7D8D0 /* WJLocalInfiniteView.m */; };
 		DA2B47681C986F01001DE451 /* NSString+WJMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2B47671C986F01001DE451 /* NSString+WJMD5.m */; };
 		DA2B476B1C987049001DE451 /* WJInfiniteCache.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2B476A1C987049001DE451 /* WJInfiniteCache.m */; };
+		DA2B47721C98F6FE001DE451 /* WJTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2B47711C98F6FE001DE451 /* WJTwoViewController.m */; };
 		DA3802941C97FDE600FAC887 /* WJInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3802931C97FDE600FAC887 /* WJInfiniteScrolling.m */; };
-		DA3802E51C98051100FAC887 /* WJTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3802E41C98051100FAC887 /* WJTwoViewController.m */; };
 		DA3802E81C980C9B00FAC887 /* WJDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3802E71C980C9B00FAC887 /* WJDownloadOperation.m */; };
 		DA3802EB1C98218A00FAC887 /* placeholderImage.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DA3802EA1C98218A00FAC887 /* placeholderImage.bundle */; };
 		ED035BC00A1B4774678BDBFE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 129B3388B7D2F49463F06C9F /* libPods.a */; };
@@ -75,10 +75,10 @@
 		DA2B47691C987049001DE451 /* WJInfiniteCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJInfiniteCache.h; sourceTree = "<group>"; };
 		DA2B476A1C987049001DE451 /* WJInfiniteCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJInfiniteCache.m; sourceTree = "<group>"; };
 		DA2B476C1C9870D5001DE451 /* singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = singleton.h; sourceTree = "<group>"; };
+		DA2B47701C98F6FE001DE451 /* WJTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJTwoViewController.h; sourceTree = "<group>"; };
+		DA2B47711C98F6FE001DE451 /* WJTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJTwoViewController.m; sourceTree = "<group>"; };
 		DA3802921C97FDE600FAC887 /* WJInfiniteScrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJInfiniteScrolling.h; sourceTree = "<group>"; };
 		DA3802931C97FDE600FAC887 /* WJInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJInfiniteScrolling.m; sourceTree = "<group>"; };
-		DA3802E31C98051100FAC887 /* WJTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WJTwoViewController.h; path = Masonry/WJTwoViewController.h; sourceTree = "<group>"; };
-		DA3802E41C98051100FAC887 /* WJTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WJTwoViewController.m; path = Masonry/WJTwoViewController.m; sourceTree = "<group>"; };
 		DA3802E61C980C9B00FAC887 /* WJDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJDownloadOperation.h; sourceTree = "<group>"; };
 		DA3802E71C980C9B00FAC887 /* WJDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJDownloadOperation.m; sourceTree = "<group>"; };
 		DA3802EA1C98218A00FAC887 /* placeholderImage.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = placeholderImage.bundle; sourceTree = "<group>"; };
@@ -155,10 +155,10 @@
 				DA0C848B1C9057FD00F7D8D0 /* WJInfiniteScrolling */,
 				DA0C84611C9024A800F7D8D0 /* WJOneViewController.h */,
 				DA0C84621C9024A800F7D8D0 /* WJOneViewController.m */,
-				DA3802E31C98051100FAC887 /* WJTwoViewController.h */,
-				DA3802E41C98051100FAC887 /* WJTwoViewController.m */,
 				DA0C84641C9024D800F7D8D0 /* WJTableViewController.h */,
 				DA0C84651C9024D800F7D8D0 /* WJTableViewController.m */,
+				DA2B47701C98F6FE001DE451 /* WJTwoViewController.h */,
+				DA2B47711C98F6FE001DE451 /* WJTwoViewController.m */,
 				DA0C842E1C90243100F7D8D0 /* AppDelegate.h */,
 				DA0C842F1C90243100F7D8D0 /* AppDelegate.m */,
 				DA0C84341C90243100F7D8D0 /* Main.storyboard */,
@@ -404,10 +404,10 @@
 				DA0C84661C9024D800F7D8D0 /* WJTableViewController.m in Sources */,
 				DA0C84301C90243100F7D8D0 /* AppDelegate.m in Sources */,
 				DA3802941C97FDE600FAC887 /* WJInfiniteScrolling.m in Sources */,
+				DA2B47721C98F6FE001DE451 /* WJTwoViewController.m in Sources */,
 				DA0C842D1C90243100F7D8D0 /* main.m in Sources */,
 				DA0C84631C9024A800F7D8D0 /* WJOneViewController.m in Sources */,
 				DA2B47681C986F01001DE451 /* NSString+WJMD5.m in Sources */,
-				DA3802E51C98051100FAC887 /* WJTwoViewController.m in Sources */,
 				DA2B476B1C987049001DE451 /* WJInfiniteCache.m in Sources */,
 				DA0C84601C90249100F7D8D0 /* WJNavgationController.m in Sources */,
 				DA3802E81C980C9B00FAC887 /* WJDownloadOperation.m in Sources */,

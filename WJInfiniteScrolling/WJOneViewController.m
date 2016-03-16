@@ -39,9 +39,22 @@
 //    http://i3.itc.cn/20160314/3711_91558c48_90d8_3651_f717_6fb6d83a9f9e_1.jpg
 //    http://i3.itc.cn/20160315/3711_8759ea44_704f_6218_b24f_aae33c82f0b9_1.jpg
     
-    
-    
-
+//    Pod::Spec.new do |s|
+//        s.name         = "WJInfiniteScrolling"
+//        s.version      = "1.0"
+//        s.summary      = "InfiniteScrolling."
+//        s.homepage     = "https://github.com/hujewelz/HUPhotoBrowser"
+//        s.license      = "MIT"
+//        s.author             = { "wangjun" => "wj163my_vip@163.com" }
+//    s.platform     = :ios, "7.0"
+//    s.source       = { :git => "https://github.com/qq978262947/WJInfiniteScrolling.git", :tag => "0.0.2" }
+//    s.source_files  = "WJInfiniteScrolling", "WJInfiniteScrolling/**/*.{h,m}"
+//    s.frameworks = "UIKit" , "Foundation"
+//    s.dependency "Masonry"
+//    pod spec lint WJInfiniteScrolling.podspec
+//    
+//    
+//    pod spec create WJInfiniteScrolling
     
 }
 
