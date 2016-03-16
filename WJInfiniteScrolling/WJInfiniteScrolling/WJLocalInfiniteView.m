@@ -7,7 +7,7 @@
 //
 
 #import "WJLocalInfiniteView.h"
-#import "Masonry.h"
+#import <Masonry.h>
 
 #define WJScreen [UIScreen mainScreen].bounds.size.width
 #define WJFiniteScrollW (WJScreen - 20)
