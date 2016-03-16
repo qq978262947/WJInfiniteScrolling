@@ -344,7 +344,13 @@ static NSInteger const WJADImageBaseTag = 10;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    self.pageCotrol.currentPage = self.scrollView.contentOffset.x / self.scrollView.frame.size.width - 0.5 + self.currentPage;
+    CGFloat page = self.scrollView.contentOffset.x / self.scrollView.frame.size.width - 0.5 + self.currentPage;
+    if (page < 0) {
+        page += _urlImageStrings.count;
+    } else if (page >= _urlImageStrings.count) {
+        page -= _urlImageStrings.count;
+    }
+    self.pageCotrol.currentPage = page;
 }
 
 //处理内存警告
