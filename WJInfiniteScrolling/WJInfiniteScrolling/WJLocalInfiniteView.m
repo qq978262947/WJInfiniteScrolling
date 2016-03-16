@@ -151,8 +151,14 @@ static NSInteger const WJADImageBaseTag = 10;
 }
 
 - (void)autoChangePage {
-    self.currentPage = (self.currentPage + 1) % _images.count;
-    [self configImageView];
+    CGFloat contentX = self.scrollView.contentOffset.x;
+    [UIView animateWithDuration:0.5 animations:^{
+        self.scrollView.contentOffset = CGPointMake(contentX + self.frame.size.width, 0);
+    } completion:^(BOOL finished) {
+        self.scrollView.contentOffset = CGPointMake(contentX, 0);
+        self.currentPage = (self.currentPage + 1) % _images.count;
+        [self configImageView];
+    }];
 }
 
 
@@ -176,6 +182,16 @@ static NSInteger const WJADImageBaseTag = 10;
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
     [self configTimer];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat page = self.scrollView.contentOffset.x / self.scrollView.frame.size.width - 0.5 + self.currentPage;
+    if (page < 0) {
+        page += _images.count;
+    } else if (page >= _images.count) {
+        page -= _images.count;
+    }
+    self.pageCotrol.currentPage = page;
 }
 
 @end

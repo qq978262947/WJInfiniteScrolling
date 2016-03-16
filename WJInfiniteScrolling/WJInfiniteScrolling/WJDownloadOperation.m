@@ -18,8 +18,17 @@
     @autoreleasepool {
         
         NSURL *downloadUrl = [NSURL URLWithString:self.url];
+        if (self.isCancelled) return;
         NSData *data = [NSData dataWithContentsOfURL:downloadUrl]; // 这行会比较耗时
+        if (self.isCancelled) {
+            downloadUrl = nil;
+            data = nil;
+        }
         UIImage *image = [UIImage imageWithData:data];
+        if (self.isCancelled) {
+            image = nil;
+            return;
+        }
         //下载操作已经完成下载了
         if ([self.delegate respondsToSelector:@selector(downloadOperation:didFinishDownload:)]) {
             dispatch_async(dispatch_get_main_queue(), ^{ // 回到主线程, 传递图片数据给代理对象

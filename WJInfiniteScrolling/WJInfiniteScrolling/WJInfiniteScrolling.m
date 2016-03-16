@@ -300,8 +300,14 @@ static NSInteger const WJADImageBaseTag = 10;
 
 // 定时器跳转掉用的方法
 - (void)autoChangePage {
-    self.currentPage = (self.currentPage + 1) % _urlImageStrings.count;
-    [self configImageView];
+    CGFloat contentX = self.scrollView.contentOffset.x;
+    [UIView animateWithDuration:0.5 animations:^{
+        self.scrollView.contentOffset = CGPointMake(contentX + self.frame.size.width, 0);
+    } completion:^(BOOL finished) {
+        self.currentPage = (self.currentPage + 1) % _urlImageStrings.count;
+        self.scrollView.contentOffset = CGPointMake(contentX, 0);
+        [self configImageView];
+    }];
 }
 
 // 设置图片
