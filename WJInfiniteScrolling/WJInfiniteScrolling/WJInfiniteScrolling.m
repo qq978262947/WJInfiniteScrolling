@@ -7,7 +7,7 @@
 //
 
 #import "WJInfiniteScrolling.h"
-#import "Masonry.h"
+#import <Masonry.h>
 #import "WJDownloadOperation.h"
 #import "NSString+WJMD5.h"
 
