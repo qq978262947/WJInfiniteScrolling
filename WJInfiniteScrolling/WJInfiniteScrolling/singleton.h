@@ -2,8 +2,8 @@
 //  singleton.h
 //  数据库-data
 //
-//  Created by qianfeng on 16/1/7.
-//  Copyright (c) 2016年 qianfeng. All rights reserved.
+//  Created by wangjun on 16/1/7.
+//  Copyright (c) 2016年 wangjun. All rights reserved.
 //
 
 #define ____data_singleton_h

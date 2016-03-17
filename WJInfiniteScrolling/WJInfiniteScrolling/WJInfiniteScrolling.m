@@ -11,8 +11,8 @@
 #import "WJDownloadOperation.h"
 #import "NSString+WJMD5.h"
 
-#define WJScreen [UIScreen mainScreen].bounds.size.width
-#define WJFiniteScrollW (WJScreen - 20)
+#define WJScreenW [UIScreen mainScreen].bounds.size.width
+#define WJFiniteScrollW (WJScreenW - 20)
 
 static NSInteger const WJADImageBaseTag = 10;
 
@@ -302,7 +302,7 @@ static NSInteger const WJADImageBaseTag = 10;
 - (void)autoChangePage {
     CGFloat contentX = self.scrollView.contentOffset.x;
     [UIView animateWithDuration:0.5 animations:^{
-        self.scrollView.contentOffset = CGPointMake(contentX + self.frame.size.width, 0);
+        self.scrollView.contentOffset = CGPointMake(contentX + WJFiniteScrollW, 0);
     } completion:^(BOOL finished) {
         self.currentPage = (self.currentPage + 1) % _urlImageStrings.count;
         self.scrollView.contentOffset = CGPointMake(contentX, 0);

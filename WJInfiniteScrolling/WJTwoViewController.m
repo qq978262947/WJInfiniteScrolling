@@ -10,6 +10,8 @@
 #import "WJInfiniteScrolling.h"
 #import "Masonry.h"
 #import "WJInfiniteCache.h"
+#define WJScreenW [UIScreen mainScreen].bounds.size.width
+#define WJFiniteScrollW (WJScreenW - 20)
 
 @interface WJTwoViewController ()
 
@@ -26,9 +28,9 @@
     
     [oneView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@10);
-        make.right.equalTo(@-10);
-        make.top.equalTo(@200);
+        make.top.equalTo(@100);
         make.height.equalTo(@190);
+        make.width.equalTo(@(WJFiniteScrollW));
     }];
     
     oneView.backgroundColor = [UIColor whiteColor];
