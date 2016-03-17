@@ -126,7 +126,7 @@ static NSInteger const WJADImageBaseTag = 10;
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         [self setupReceiveMemoryWaring];
-        self.autoPlayInterval = 2.5;
+        self.autoPlayInterval = 7;
     }
     return self;
 }
